@@ -11,21 +11,11 @@ public struct GuitarView: View {
   
   public var body: some View {
     WithViewStore(store) { viewStore in
-      VStack {
-        HStack {
-          ForEach(viewStore.tuning.notes) { note in
-            Button(note.description) {
-              viewStore.send(.play(note))
-            }
-          }
-        }
-        Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
-          ForEach(GuitarTuning.allCases) { tuning in
-            Text(tuning.rawValue)
-              .tag(tuning)
-          }
-        }
-      }
+#if os(macOS)
+      GuitarView_macOS(store: store)
+#elseif os(iOS)
+      GuitarView_iOS(store: store)
+#endif
     }
   }
 }
