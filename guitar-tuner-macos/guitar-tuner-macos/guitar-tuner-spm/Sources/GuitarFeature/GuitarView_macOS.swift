@@ -8,11 +8,9 @@ struct GuitarView_macOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       VStack {
-        Image("guitar")
-          .resizable()
-          .scaledToFit()
-          .foregroundColor(.pink)
-        
+        Rectangle()
+          .frame(width: 500)
+
         HStack {
           ForEach(viewStore.tuning.notes) { note in
             Button(note.description) {

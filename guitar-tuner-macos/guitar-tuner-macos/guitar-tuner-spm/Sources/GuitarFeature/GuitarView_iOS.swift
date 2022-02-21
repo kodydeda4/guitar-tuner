@@ -8,6 +8,9 @@ struct GuitarView_iOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       VStack {
+        Rectangle()
+          .frame(width: 500)
+        
         HStack {
           ForEach(viewStore.tuning.notes) { note in
             Button(note.description) {
