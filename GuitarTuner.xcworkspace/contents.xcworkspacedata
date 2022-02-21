@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:guitar-tuner-macos/guitar-tuner-macos.xcodeproj">
+      location = "group:/Users/kodydeda/Development/kodydeda/1. SwiftUI/SwiftUI-GuitarTuner/guitar-tuner-macos/guitar-tuner-macos/guitar-tuner-spm">
    </FileRef>
    <FileRef
-      location = "group:/Users/kodydeda/Development/kodydeda/1. SwiftUI/SwiftUI-GuitarTuner/guitar-tuner-macos/guitar-tuner-macos/guitar-tuner-spm">
+      location = "group:guitar-tuner/guitar-tuner.xcodeproj">
    </FileRef>
 </Workspace>
