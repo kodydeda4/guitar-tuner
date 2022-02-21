@@ -15,6 +15,8 @@
 		333E634127C3FE17008B6D55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333E634027C3FE17008B6D55 /* Assets.xcassets */; };
 		333E634427C3FE17008B6D55 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333E634327C3FE17008B6D55 /* Preview Assets.xcassets */; };
 		333E634A27C3FE35008B6D55 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 333E634927C3FE35008B6D55 /* AppFeature */; };
+		333E635527C403FE008B6D55 /* Acoustic Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 333E635427C403FE008B6D55 /* Acoustic Guitar.sf2 */; };
+		333E635727C405CE008B6D55 /* Acoustic Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 333E635627C405CE008B6D55 /* Acoustic Guitar.sf2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		333E634027C3FE17008B6D55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		333E634327C3FE17008B6D55 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		333E634527C3FE17008B6D55 /* guitar_tuner_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = guitar_tuner_macos.entitlements; sourceTree = "<group>"; };
+		333E635427C403FE008B6D55 /* Acoustic Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acoustic Guitar.sf2"; sourceTree = "<group>"; };
+		333E635627C405CE008B6D55 /* Acoustic Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Acoustic Guitar.sf2"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 		333E632727C3FD9C008B6D55 /* guitar-tuner-ios */ = {
 			isa = PBXGroup;
 			children = (
+				333E635627C405CE008B6D55 /* Acoustic Guitar.sf2 */,
 				333E632827C3FD9D008B6D55 /* Main.swift */,
 				333E632C27C3FD9D008B6D55 /* Assets.xcassets */,
 				333E632E27C3FD9D008B6D55 /* Preview Content */,
@@ -70,6 +75,7 @@
 		333E633B27C3FE17008B6D55 /* guitar-tuner-macos */ = {
 			isa = PBXGroup;
 			children = (
+				333E635427C403FE008B6D55 /* Acoustic Guitar.sf2 */,
 				333E633C27C3FE17008B6D55 /* Main.swift */,
 				333E634027C3FE17008B6D55 /* Assets.xcassets */,
 				333E634527C3FE17008B6D55 /* guitar_tuner_macos.entitlements */,
@@ -198,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				333E633027C3FD9D008B6D55 /* Preview Assets.xcassets in Resources */,
+				333E635727C405CE008B6D55 /* Acoustic Guitar.sf2 in Resources */,
 				333E632D27C3FD9D008B6D55 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				333E634427C3FE17008B6D55 /* Preview Assets.xcassets in Resources */,
+				333E635527C403FE008B6D55 /* Acoustic Guitar.sf2 in Resources */,
 				333E634127C3FE17008B6D55 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

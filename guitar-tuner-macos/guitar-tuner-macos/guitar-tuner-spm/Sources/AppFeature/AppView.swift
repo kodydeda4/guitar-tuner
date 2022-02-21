@@ -1,5 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
+import Models
+import GuitarFeature
 
 public struct AppView: View {
   public let store: Store<AppState, AppAction>
@@ -10,14 +12,10 @@ public struct AppView: View {
   
   public var body: some View {
     WithViewStore(store) { viewStore in
-      VStack {
-        Text(viewStore.text)
-        .padding(60)
-        
-        Button("Update") {
-          viewStore.send(.updateText)
-        }
-      }
+      GuitarView(store: store.scope(
+        state: \.guitar,
+        action: AppAction.guitar
+      ))
     }
   }
 }

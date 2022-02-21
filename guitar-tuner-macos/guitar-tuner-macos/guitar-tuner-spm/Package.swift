@@ -3,8 +3,20 @@
 import PackageDescription
 
 extension Target.Dependency {
+  // Features
   static let appFeature: Self = "AppFeature"
-  static let composableArchitecture: Self = .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+  static let guitarFeature: Self = "GuitarFeature"
+  
+  // Clients
+  static let guitarClient: Self = "GuitarClient"
+  
+  // Core
+  static let models: Self = "Models"
+  static let avSoundConductor: Self = "AVSoundConductor"
+  static let composableArchitecture: Self = .product(
+    name: "ComposableArchitecture",
+    package: "swift-composable-architecture"
+  )
 }
 
 let package = Package(
@@ -16,11 +28,29 @@ let package = Package(
   ],
   targets: []
 ).addSources([
-  Source(name: "AppFeature", dependencies: [.composableArchitecture])
+  
+  // Features
+  Source(name: "AppFeature", dependencies: [.guitarFeature]),
+  Source(name: "GuitarFeature", dependencies: [
+    .composableArchitecture,
+    .guitarClient,
+    .models
+  ]),
+  
+  // Clients
+  Source(name: "GuitarClient", dependencies: [
+    .composableArchitecture,
+    .avSoundConductor,
+    .models,
+  ]),
+  
+  // Core
+  Source(name: "Models"),
+  Source(name: "AVSoundConductor")
 ])
 
 
-// MARK: - Helpers
+// MARK: - Extensions
 
 struct Source {
   let name: String
