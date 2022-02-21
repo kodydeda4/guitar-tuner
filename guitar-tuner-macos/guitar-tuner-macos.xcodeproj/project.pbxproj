@@ -10,8 +10,7 @@
 		33013BBA27C3F3FC0061A7B2 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33013BB927C3F3FC0061A7B2 /* Main.swift */; };
 		33013BBE27C3F3FC0061A7B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33013BBD27C3F3FC0061A7B2 /* Assets.xcassets */; };
 		33013BC127C3F3FC0061A7B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33013BC027C3F3FC0061A7B2 /* Preview Assets.xcassets */; };
-		33013BCA27C3F52E0061A7B2 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 33013BC927C3F52E0061A7B2 /* AppFeature */; };
-		33013BCD27C3F7780061A7B2 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 33013BCC27C3F7780061A7B2 /* ComposableArchitecture */; };
+		33E89D9427C3FC67007C4639 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 33E89D9327C3FC67007C4639 /* AppFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +19,6 @@
 		33013BBD27C3F3FC0061A7B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33013BC027C3F3FC0061A7B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		33013BC227C3F3FC0061A7B2 /* guitar_tuner_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = guitar_tuner_macos.entitlements; sourceTree = "<group>"; };
-		33013BCE27C3F7DC0061A7B2 /* guitar-tuner-spm */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "guitar-tuner-spm"; path = "/Users/kodydeda/Development/kodydeda/1. SwiftUI/SwiftUI-GuitarTuner/guitar-tuner-macos/guitar-tuner-macos/guitar-tuner-spm"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,8 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33013BCD27C3F7780061A7B2 /* ComposableArchitecture in Frameworks */,
-				33013BCA27C3F52E0061A7B2 /* AppFeature in Frameworks */,
+				33E89D9427C3FC67007C4639 /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +53,6 @@
 		33013BB827C3F3FC0061A7B2 /* guitar-tuner-macos */ = {
 			isa = PBXGroup;
 			children = (
-				33013BCE27C3F7DC0061A7B2 /* guitar-tuner-spm */,
 				33013BB927C3F3FC0061A7B2 /* Main.swift */,
 				33013BBD27C3F3FC0061A7B2 /* Assets.xcassets */,
 				33013BC227C3F3FC0061A7B2 /* guitar_tuner_macos.entitlements */,
@@ -97,8 +93,7 @@
 			);
 			name = "guitar-tuner-macos";
 			packageProductDependencies = (
-				33013BC927C3F52E0061A7B2 /* AppFeature */,
-				33013BCC27C3F7780061A7B2 /* ComposableArchitecture */,
+				33E89D9327C3FC67007C4639 /* AppFeature */,
 			);
 			productName = "guitar-tuner-macos";
 			productReference = 33013BB627C3F3FC0061A7B2 /* guitar-tuner-macos.app */;
@@ -370,14 +365,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		33013BC927C3F52E0061A7B2 /* AppFeature */ = {
+		33E89D9327C3FC67007C4639 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
-		};
-		33013BCC27C3F7780061A7B2 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 33013BCB27C3F7780061A7B2 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
