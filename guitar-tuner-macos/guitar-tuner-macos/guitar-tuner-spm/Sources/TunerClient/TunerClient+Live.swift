@@ -5,7 +5,7 @@ import AVSoundConductor
 public extension TunerClient {
   static var live: Self {
     let conductor = AVSoundConductor(
-      soundfont: AVSoundFont(url: Bundle.main.url(forResource: "Acoustic Guitar", withExtension: "sf2")!),
+      soundfont: AVSoundFont(url: Bundle.main.url(forResource: "Guitar", withExtension: "sf2")!),
       volume: 0.5,
       channel: 1
     )

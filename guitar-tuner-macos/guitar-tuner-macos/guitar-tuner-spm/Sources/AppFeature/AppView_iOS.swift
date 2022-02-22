@@ -8,7 +8,7 @@ struct AppView_iOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       TabView {
-        TunerView(store: store.scope(state: \.guitar, action: AppAction.guitar))
+        TunerView(store: store.scope(state: \.tuner, action: AppAction.tuner))
           .navigationView()
           .tag(0)
           .tabItem { Label("Tune", systemImage: "music.note.list") }

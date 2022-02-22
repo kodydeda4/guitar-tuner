@@ -12,50 +12,42 @@ struct TunerView_iOS: View {
           Image(viewStore.instrument.rawValue)
             .resizable()
             .scaledToFit()
-            .frame(width: 200)
+            .frame(width: 175)
             .padding()
-            .background(
-              GroupBox {
-                Color.clear
-              }
-                .clipShape(Circle())
-            )
+            .background(GroupBox { Color.clear })
+            .clipShape(Circle())
             .frame(maxWidth: .infinity, alignment: .center)
             .listRowBackground(Color.clear)
+            .padding(.top)
         }
-        
         Section {
           Picker("Instrument", selection: viewStore.binding(\.$instrument)) {
             ForEach(Instrument.allCases) {
-              Text($0.rawValue)
-                .tag($0)
+              Text($0.rawValue).tag($0)
             }
           }
-          
           Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
             ForEach(InstrumentTuning.allCases) {
-              Text($0.rawValue)
-                .tag($0)
+              Text($0.rawValue).tag($0)
             }
           }
         }
         Section {
           HStack {
-            ForEach(viewStore.tuning.notes) { note in
+            ForEach(viewStore.notes) { note in
               Button(action: { viewStore.send(.play(note)) }) {
                 GroupBox {
                   Text(note.description.prefix(1))
-                    .frame(maxWidth: .infinity)
                 }
               }
-              .buttonStyle(.plain)
             }
           }
-          .listRowBackground(Color.clear)
         }
+        .buttonStyle(.plain)
+        .listRowBackground(Color.clear)
       }
       .listStyle(.inset)
-      .navigationTitle("GuitarTuner")
+      .navigationTitle("\(viewStore.instrument.rawValue) Tuner")
     }
   }
 }
@@ -67,3 +59,4 @@ struct GuitarViewiOS_Previews: PreviewProvider {
     }
   }
 }
+ 

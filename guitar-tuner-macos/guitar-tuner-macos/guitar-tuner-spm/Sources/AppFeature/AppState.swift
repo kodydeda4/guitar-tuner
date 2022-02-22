@@ -4,44 +4,44 @@ import TunerClient
 import TunerFeature
 
 public struct AppState: Equatable {
-  public var guitar = TunerState(
+  public var tuner = TunerState(
     instrument: .guitar,
     tuning: .eStandard
   )
 }
 
 public enum AppAction: Equatable {
-  case guitar(TunerAction)
+  case tuner(TunerAction)
 }
 
 public struct AppEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
-  public let guitarClient: TunerClient
+  public let tunerClient: TunerClient
   
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
     guitarClient: TunerClient
   ) {
     self.mainQueue = mainQueue
-    self.guitarClient = guitarClient
+    self.tunerClient = guitarClient
   }
 }
 
 public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   tunerReducer.pullback(
-    state: \.guitar,
-    action: /AppAction.guitar,
+    state: \.tuner,
+    action: /AppAction.tuner,
     environment: {
       TunerEnvironment(
         mainQueue: $0.mainQueue,
-        guitarClient: $0.guitarClient
+        tunerClient: $0.tunerClient
       )
     }
   ),
   Reducer { state, action, environment in
     switch action {
       
-    case .guitar:
+    case .tuner:
       return .none
     }
   }

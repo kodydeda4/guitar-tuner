@@ -9,7 +9,7 @@ extension TunerState {
     reducer: tunerReducer,
     environment: TunerEnvironment(
       mainQueue: .main,
-      guitarClient: .live
+      tunerClient: .live
     )
   )
 }

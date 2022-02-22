@@ -8,8 +8,8 @@ struct AppView_macOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       TunerView(store: store.scope(
-        state: \.guitar,
-        action: AppAction.guitar
+        state: \.tuner,
+        action: AppAction.tuner
       ))
     }
   }
