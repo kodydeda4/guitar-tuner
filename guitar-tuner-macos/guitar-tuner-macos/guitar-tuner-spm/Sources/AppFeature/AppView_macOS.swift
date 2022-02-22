@@ -13,47 +13,59 @@ struct AppView_macOS: View {
           NavigationLink(
             tag: 0,
             selection: $navlink,
-            destination: {
-              TunerView(store: store.scope(
-                state: \.tuner,
-                action: AppAction.tuner
-              ))
-            },
-            label: {
-              Label(
-                "Tune",
-                systemImage: "music.note.list"
-              )
-            }
+            destination: { TunerView(store: store.scope(state: \.tuner, action: AppAction.tuner)) },
+            label: { Label("Tune", systemImage: "music.note.list") }
           )
           NavigationLink(
             tag: 1,
             selection: $navlink,
-            destination: {
-              VStack {
-                Text("About")
-              }
-              .navigationTitle("About")
-              .toolbar {
-                Button("Github") {
-                  ///....
-                }
-              }
-            },
-            label: {
-              Label(
-                "About",
-                systemImage: "gear"
-              )
-            }
+            destination: { AboutView(store: store) },
+            label: { Label("About", systemImage: "gear") }
           )
         }
         .listStyle(.sidebar)
+        .toolbar {
+          ToolbarItemGroup(placement: .navigation) {
+            Button(action: toggleSidebar) {
+              Label("Sidebar", systemImage: "sidebar.left")
+            }
+          }
+        }
       }
-      .frame(width: 700, height: 300)
+//      .frame(width: 525, height: 375)
+      .frame(width: 550, height: 400)
+      
     }
   }
 }
+
+struct AboutView: View {
+  let store: Store<AppState, AppAction>
+  var body: some View {
+    WithViewStore(store) { viewStore in
+      VStack {
+        Text("About")
+      }
+      .navigationTitle("About")
+      .toolbar {
+        Button("Github") {
+          ///....
+        }
+        Button("LinkedIn") {
+          ///....
+        }
+      }
+    }
+  }
+}
+
+func toggleSidebar() {
+  NSApp
+    .keyWindow?
+    .firstResponder?
+    .tryToPerform(#selector(NSSplitViewController.toggleSidebar), with: nil)
+}
+
 
 struct SwiftUIView_Previews: PreviewProvider {
   static var previews: some View {

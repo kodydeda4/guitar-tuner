@@ -7,38 +7,40 @@ struct TunerView_macOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      HStack {
+      VStack {
         Image(viewStore.instrument.rawValue)
           .resizable()
           .scaledToFit()
-          .frame(width: 175)
+          .padding()
         
         HStack {
           ForEach(viewStore.notes) { note in
             Button(action: { viewStore.send(.play(note)) }) {
               GroupBox {
                 Text(note.description.prefix(1))
-                  .padding()
+                  .padding(12)
+                  .frame(maxWidth: .infinity)
               }
             }
             .buttonStyle(.plain)
           }
         }
+        .frame(maxWidth: .infinity)
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.gray.opacity(0.1))
       }
-      .navigationTitle("\(viewStore.instrument.rawValue) Tuner")
+      .navigationTitle("Tune")
       .toolbar {
-        Picker("Instrument", selection: viewStore.binding(\.$instrument)) {
-          ForEach(Instrument.allCases) {
-            Text($0.rawValue).tag($0)
+        ToolbarItemGroup(placement: .automatic) {
+          Picker("Instrument", selection: viewStore.binding(\.$instrument)) {
+            ForEach(Instrument.allCases) {
+              Text($0.rawValue).tag($0)
+            }
           }
-        }
-        Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
-          ForEach(InstrumentTuning.allCases) { tuning in
-            Text(tuning.rawValue)
-              .tag(tuning)
+          Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
+            ForEach(InstrumentTuning.allCases) { tuning in
+              Text(tuning.rawValue)
+                .tag(tuning)
+            }
           }
         }
       }
