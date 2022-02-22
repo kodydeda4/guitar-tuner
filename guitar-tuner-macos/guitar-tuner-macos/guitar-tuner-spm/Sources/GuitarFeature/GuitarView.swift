@@ -10,13 +10,11 @@ public struct GuitarView: View {
   }
   
   public var body: some View {
-    WithViewStore(store) { viewStore in
 #if os(macOS)
-      GuitarView_macOS(store: store)
+    GuitarView_macOS(store: store)
 #elseif os(iOS)
-      GuitarView_iOS(store: store)
+    GuitarView_iOS(store: store)
 #endif
-    }
   }
 }
 

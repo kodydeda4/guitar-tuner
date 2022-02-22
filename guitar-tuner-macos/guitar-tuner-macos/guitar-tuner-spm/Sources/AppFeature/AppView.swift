@@ -11,12 +11,11 @@ public struct AppView: View {
   }
   
   public var body: some View {
-    WithViewStore(store) { viewStore in
-      GuitarView(store: store.scope(
-        state: \.guitar,
-        action: AppAction.guitar
-      ))
-    }
+#if os(macOS)
+    AppView_macOS(store: store)
+#elseif os(iOS)
+    AppView_iOS(store: store)
+#endif
   }
 }
 
