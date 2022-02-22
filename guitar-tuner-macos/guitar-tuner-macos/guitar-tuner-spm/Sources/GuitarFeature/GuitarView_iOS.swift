@@ -25,10 +25,17 @@ struct GuitarView_iOS: View {
         }
         
         Section {
+          Picker("Instrument", selection: viewStore.binding(\.$instrument)) {
+            ForEach(Instrument.allCases) {
+              Text($0.rawValue)
+                .tag($0)
+            }
+          }
+
           Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
-            ForEach(GuitarTuning.allCases) { tuning in
-              Text(tuning.rawValue)
-                .tag(tuning)
+            ForEach(GuitarTuning.allCases) {
+              Text($0.rawValue)
+                .tag($0)
             }
           }
         }

@@ -3,11 +3,14 @@ import ComposableArchitecture
 import GuitarClient
 
 public struct GuitarState: Equatable {
+  @BindableState public var instrument: Instrument
   @BindableState public var tuning: GuitarTuning
   
   public init(
-    tuning: GuitarTuning = .eStandard
+    instrument: Instrument,
+    tuning: GuitarTuning
   ) {
+    self.instrument = instrument
     self.tuning = tuning
   }
 }

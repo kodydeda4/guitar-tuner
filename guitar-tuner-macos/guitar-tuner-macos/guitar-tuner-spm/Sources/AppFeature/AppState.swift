@@ -4,7 +4,7 @@ import GuitarClient
 import GuitarFeature
 
 public struct AppState: Equatable {
-  public var guitar = GuitarState()
+  public var guitar = GuitarState(instrument: .guitar, tuning: .eStandard)
 }
 
 public enum AppAction: Equatable {
