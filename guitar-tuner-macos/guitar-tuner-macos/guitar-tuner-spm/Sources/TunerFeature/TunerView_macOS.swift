@@ -7,22 +7,34 @@ struct TunerView_macOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      VStack {
-        Rectangle()
-          .frame(width: 500)
-
+      HStack {
+        Image(viewStore.instrument.rawValue)
+          .resizable()
+          .scaledToFit()
+          .frame(width: 175)
+        
         HStack {
-          ForEach(viewStore.tuning.notes) { note in
-            Button(note.description) {
-              viewStore.send(.play(note))
+          ForEach(viewStore.notes) { note in
+            Button(action: { viewStore.send(.play(note)) }) {
+              GroupBox {
+                Text(note.description.prefix(1))
+                  .padding()
+              }
             }
+            .buttonStyle(.plain)
           }
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.gray.opacity(0.1))
       }
-      .frame(width: 400, height: 400)
-      .navigationTitle("GuitarTuner")
+      .navigationTitle("\(viewStore.instrument.rawValue) Tuner")
       .toolbar {
+        Picker("Instrument", selection: viewStore.binding(\.$instrument)) {
+          ForEach(Instrument.allCases) {
+            Text($0.rawValue).tag($0)
+          }
+        }
         Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
           ForEach(InstrumentTuning.allCases) { tuning in
             Text(tuning.rawValue)

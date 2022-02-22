@@ -11,7 +11,7 @@ public struct TunerView: View {
   
   public var body: some View {
 #if os(macOS)
-    GuitarView_macOS(store: store)
+    TunerView_macOS(store: store)
 #elseif os(iOS)
     TunerView_iOS(store: store)
 #endif
