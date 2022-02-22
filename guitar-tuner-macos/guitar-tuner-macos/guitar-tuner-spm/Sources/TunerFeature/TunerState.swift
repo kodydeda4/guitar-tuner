@@ -8,8 +8,8 @@ public struct TunerState: Equatable {
   var notes: [Note] { instrument == .bass ? Array(tuning.notes.prefix(upTo: 4)) : tuning.notes }
   
   public init(
-    instrument: Instrument,
-    tuning: InstrumentTuning
+    instrument: Instrument = .guitar,
+    tuning: InstrumentTuning = .eStandard
   ) {
     self.instrument = instrument
     self.tuning = tuning

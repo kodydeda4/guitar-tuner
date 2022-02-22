@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import TunerFeature
+import AboutFeature
 
 struct AppView_macOS: View {
   let store: Store<AppState, AppAction>
@@ -19,18 +20,18 @@ struct AppView_macOS: View {
           NavigationLink(
             tag: 1,
             selection: $navlink,
-            destination: { AboutView(store: store) },
+            destination: { AboutView(store: store.scope(state: \.about, action: AppAction.about)) },
             label: { Label("About", systemImage: "gear") }
           )
         }
         .listStyle(.sidebar)
-        .toolbar {
-          ToolbarItemGroup(placement: .navigation) {
-            Button(action: toggleSidebar) {
-              Label("Sidebar", systemImage: "sidebar.left")
-            }
-          }
-        }
+//        .toolbar {
+//          ToolbarItemGroup(placement: .navigation) {
+//            Button(action: toggleSidebar) {
+//              Label("Sidebar", systemImage: "sidebar.left")
+//            }
+//          }
+//        }
       }
 //      .frame(width: 525, height: 375)
       .frame(width: 550, height: 400)
@@ -39,32 +40,12 @@ struct AppView_macOS: View {
   }
 }
 
-struct AboutView: View {
-  let store: Store<AppState, AppAction>
-  var body: some View {
-    WithViewStore(store) { viewStore in
-      VStack {
-        Text("About")
-      }
-      .navigationTitle("About")
-      .toolbar {
-        Button("Github") {
-          ///....
-        }
-        Button("LinkedIn") {
-          ///....
-        }
-      }
-    }
-  }
-}
-
-func toggleSidebar() {
-  NSApp
-    .keyWindow?
-    .firstResponder?
-    .tryToPerform(#selector(NSSplitViewController.toggleSidebar), with: nil)
-}
+//func toggleSidebar() {
+//  NSApp
+//    .keyWindow?
+//    .firstResponder?
+//    .tryToPerform(#selector(NSSplitViewController.toggleSidebar), with: nil)
+//}
 
 
 struct SwiftUIView_Previews: PreviewProvider {

@@ -2,15 +2,15 @@ import Models
 import ComposableArchitecture
 import TunerClient
 import TunerFeature
+import AboutFeature
 
 public struct AppState: Equatable {
-  public var tuner = TunerState(
-    instrument: .guitar,
-    tuning: .eStandard
-  )
+  public var about = AboutState()
+  public var tuner = TunerState()
 }
 
 public enum AppAction: Equatable {
+  case about(AboutAction)
   case tuner(TunerAction)
 }
 
@@ -28,6 +28,11 @@ public struct AppEnvironment {
 }
 
 public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+  aboutReducer.pullback(
+    state: \.about,
+    action: /AppAction.about,
+    environment: { _ in () }
+  ),
   tunerReducer.pullback(
     state: \.tuner,
     action: /AppAction.tuner,
@@ -40,6 +45,9 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   ),
   Reducer { state, action, environment in
     switch action {
+      
+    case .about:
+      return .none
       
     case .tuner:
       return .none

@@ -6,6 +6,7 @@ extension Target.Dependency {
   // Features
   static let appFeature: Self = "AppFeature"
   static let tunerFeature: Self = "TunerFeature"
+  static let aboutFeature: Self = "AboutFeature"
   
   // Clients
   static let tunerClient: Self = "TunerClient"
@@ -30,7 +31,8 @@ let package = Package(
 ).addSources([
   
   // Features
-  Source(name: "AppFeature", dependencies: [.tunerFeature]),
+  Source(name: "AppFeature", dependencies: [.tunerFeature, .aboutFeature]),
+  Source(name: "AboutFeature", dependencies: [.composableArchitecture]),
   Source(name: "TunerFeature", dependencies: [
     .composableArchitecture,
     .tunerClient,
