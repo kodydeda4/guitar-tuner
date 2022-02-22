@@ -1,13 +1,13 @@
 import ComposableArchitecture
 
-extension GuitarState {
+extension TunerState {
   static let mockStore = Store(
-    initialState: GuitarState(
+    initialState: TunerState(
       instrument: .guitar,
       tuning: .eStandard
     ),
-    reducer: guitarReducer,
-    environment: GuitarEnvironment(
+    reducer: tunerReducer,
+    environment: TunerEnvironment(
       mainQueue: .main,
       guitarClient: .live
     )

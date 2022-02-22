@@ -1,7 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import Models
-import GuitarFeature
+import TunerFeature
 
 public struct AppView: View {
   public let store: Store<AppState, AppAction>

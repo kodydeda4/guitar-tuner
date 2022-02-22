@@ -1,6 +1,6 @@
 import Models
 import ComposableArchitecture
 
-public struct GuitarClient {
+public struct TunerClient {
   public let play: (Note) -> Effect<Never, Never>
 }

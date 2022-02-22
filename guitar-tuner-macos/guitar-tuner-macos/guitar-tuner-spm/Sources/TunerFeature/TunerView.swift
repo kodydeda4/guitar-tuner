@@ -2,10 +2,10 @@ import SwiftUI
 import ComposableArchitecture
 import Models
 
-public struct GuitarView: View {
-  public let store: Store<GuitarState, GuitarAction>
+public struct TunerView: View {
+  public let store: Store<TunerState, TunerAction>
   
-  public init(store: Store<GuitarState, GuitarAction>) {
+  public init(store: Store<TunerState, TunerAction>) {
     self.store = store
   }
   
@@ -13,13 +13,13 @@ public struct GuitarView: View {
 #if os(macOS)
     GuitarView_macOS(store: store)
 #elseif os(iOS)
-    GuitarView_iOS(store: store)
+    TunerView_iOS(store: store)
 #endif
   }
 }
 
 struct GuitarView_Previews: PreviewProvider {
   static var previews: some View {
-    GuitarView(store: GuitarState.mockStore)
+    TunerView(store: TunerState.mockStore)
   }
 }

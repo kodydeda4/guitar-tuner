@@ -2,14 +2,14 @@ import SwiftUI
 import ComposableArchitecture
 import Models
 
-struct GuitarView_iOS: View {
-  let store: Store<GuitarState, GuitarAction>
+struct TunerView_iOS: View {
+  let store: Store<TunerState, TunerAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
       Form {
         Section {
-          Image("guitar")
+          Image(viewStore.instrument.rawValue)
             .resizable()
             .scaledToFit()
             .frame(width: 200)
@@ -18,7 +18,7 @@ struct GuitarView_iOS: View {
               GroupBox {
                 Color.clear
               }
-              .clipShape(Circle())
+                .clipShape(Circle())
             )
             .frame(maxWidth: .infinity, alignment: .center)
             .listRowBackground(Color.clear)
@@ -31,9 +31,9 @@ struct GuitarView_iOS: View {
                 .tag($0)
             }
           }
-
+          
           Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
-            ForEach(GuitarTuning.allCases) {
+            ForEach(InstrumentTuning.allCases) {
               Text($0.rawValue)
                 .tag($0)
             }
@@ -63,7 +63,7 @@ struct GuitarView_iOS: View {
 struct GuitarViewiOS_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      GuitarView_iOS(store: GuitarState.mockStore)
+      TunerView_iOS(store: TunerState.mockStore)
     }
   }
 }

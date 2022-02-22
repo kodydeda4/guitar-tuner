@@ -5,10 +5,10 @@ import PackageDescription
 extension Target.Dependency {
   // Features
   static let appFeature: Self = "AppFeature"
-  static let guitarFeature: Self = "GuitarFeature"
+  static let tunerFeature: Self = "TunerFeature"
   
   // Clients
-  static let guitarClient: Self = "GuitarClient"
+  static let tunerClient: Self = "TunerClient"
   
   // Core
   static let models: Self = "Models"
@@ -30,15 +30,15 @@ let package = Package(
 ).addSources([
   
   // Features
-  Source(name: "AppFeature", dependencies: [.guitarFeature]),
-  Source(name: "GuitarFeature", dependencies: [
+  Source(name: "AppFeature", dependencies: [.tunerFeature]),
+  Source(name: "TunerFeature", dependencies: [
     .composableArchitecture,
-    .guitarClient,
+    .tunerClient,
     .models
   ]),
   
   // Clients
-  Source(name: "GuitarClient", dependencies: [
+  Source(name: "TunerClient", dependencies: [
     .composableArchitecture,
     .avSoundConductor,
     .models,

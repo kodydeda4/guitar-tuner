@@ -1,6 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
-import GuitarFeature
+import TunerFeature
 
 struct AppView_iOS: View {
   let store: Store<AppState, AppAction>
@@ -8,7 +8,7 @@ struct AppView_iOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       TabView {
-        GuitarView(store: store.scope(state: \.guitar, action: AppAction.guitar))
+        TunerView(store: store.scope(state: \.guitar, action: AppAction.guitar))
           .navigationView()
           .tag(0)
           .tabItem { Label("Tune", systemImage: "music.note.list") }

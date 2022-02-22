@@ -1,13 +1,13 @@
 import SwiftUI
 import ComposableArchitecture
-import GuitarFeature
+import TunerFeature
 
 struct AppView_macOS: View {
   let store: Store<AppState, AppAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      GuitarView(store: store.scope(
+      TunerView(store: store.scope(
         state: \.guitar,
         action: AppAction.guitar
       ))

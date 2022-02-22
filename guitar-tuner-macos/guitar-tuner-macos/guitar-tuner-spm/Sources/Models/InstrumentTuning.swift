@@ -1,16 +1,16 @@
 import Foundation
 
-public enum GuitarTuning: String {
+public enum InstrumentTuning: String {
   case eStandard = "E Standard"
   case dropD = "Drop D"
   case dadgad = "DADGAD"
 }
 
-extension GuitarTuning: Identifiable { public var id: String { rawValue } }
-extension GuitarTuning: Equatable {}
-extension GuitarTuning: CaseIterable {}
+extension InstrumentTuning: Identifiable { public var id: String { rawValue } }
+extension InstrumentTuning: Equatable {}
+extension InstrumentTuning: CaseIterable {}
 
-public extension GuitarTuning {
+public extension InstrumentTuning {
   var notes: [Note] {
     switch self {
     case .eStandard:

@@ -1,42 +1,42 @@
 import Models
 import ComposableArchitecture
-import GuitarClient
+import TunerClient
 
-public struct GuitarState: Equatable {
+public struct TunerState: Equatable {
   @BindableState public var instrument: Instrument
-  @BindableState public var tuning: GuitarTuning
+  @BindableState public var tuning: InstrumentTuning
   
   public init(
     instrument: Instrument,
-    tuning: GuitarTuning
+    tuning: InstrumentTuning
   ) {
     self.instrument = instrument
     self.tuning = tuning
   }
 }
 
-public enum GuitarAction: BindableAction, Equatable {
-  case binding(BindingAction<GuitarState>)
+public enum TunerAction: BindableAction, Equatable {
+  case binding(BindingAction<TunerState>)
   case play(Note)
 }
 
-public struct GuitarEnvironment {
+public struct TunerEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
-  public let guitarClient: GuitarClient
+  public let tunerEnvironment: TunerClient
   
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
-    guitarClient: GuitarClient
+    guitarClient: TunerClient
   ) {
     self.mainQueue = mainQueue
-    self.guitarClient = guitarClient
+    self.tunerEnvironment = guitarClient
   }
 }
 
-public let guitarReducer = Reducer<
-  GuitarState,
-  GuitarAction,
-  GuitarEnvironment
+public let tunerReducer = Reducer<
+  TunerState,
+  TunerAction,
+  TunerEnvironment
 > { state, action, environment in
   
   switch action {
@@ -46,7 +46,7 @@ public let guitarReducer = Reducer<
     
   case let .play(note):
     return environment
-      .guitarClient
+      .tunerEnvironment
       .play(note)
       .fireAndForget()
   }

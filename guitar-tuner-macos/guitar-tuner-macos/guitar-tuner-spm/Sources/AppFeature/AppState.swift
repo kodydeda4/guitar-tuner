@@ -1,23 +1,26 @@
 import Models
 import ComposableArchitecture
-import GuitarClient
-import GuitarFeature
+import TunerClient
+import TunerFeature
 
 public struct AppState: Equatable {
-  public var guitar = GuitarState(instrument: .guitar, tuning: .eStandard)
+  public var guitar = TunerState(
+    instrument: .guitar,
+    tuning: .eStandard
+  )
 }
 
 public enum AppAction: Equatable {
-  case guitar(GuitarAction)
+  case guitar(TunerAction)
 }
 
 public struct AppEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
-  public let guitarClient: GuitarClient
+  public let guitarClient: TunerClient
   
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
-    guitarClient: GuitarClient
+    guitarClient: TunerClient
   ) {
     self.mainQueue = mainQueue
     self.guitarClient = guitarClient
@@ -25,11 +28,11 @@ public struct AppEnvironment {
 }
 
 public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
-  guitarReducer.pullback(
+  tunerReducer.pullback(
     state: \.guitar,
     action: /AppAction.guitar,
     environment: {
-      GuitarEnvironment(
+      TunerEnvironment(
         mainQueue: $0.mainQueue,
         guitarClient: $0.guitarClient
       )
@@ -45,13 +48,3 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 )
 
 
-public extension AppState {
-  static let defaultStore = Store(
-    initialState: AppState(),
-    reducer: appReducer,
-    environment: AppEnvironment(
-      mainQueue: .main,
-      guitarClient: .live
-    )
-  )
-}

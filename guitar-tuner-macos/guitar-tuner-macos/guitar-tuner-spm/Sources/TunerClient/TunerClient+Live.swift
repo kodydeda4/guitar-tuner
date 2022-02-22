@@ -2,7 +2,7 @@ import Models
 import Foundation
 import AVSoundConductor
 
-public extension GuitarClient {
+public extension TunerClient {
   static var live: Self {
     let conductor = AVSoundConductor(
       soundfont: AVSoundFont(url: Bundle.main.url(forResource: "Acoustic Guitar", withExtension: "sf2")!),

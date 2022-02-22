@@ -9,3 +9,4 @@ public enum Instrument: String {
 extension Instrument: Identifiable { public var id: String { rawValue } }
 extension Instrument: Equatable {}
 extension Instrument: CaseIterable {}
+extension Instrument { var imageAssetName: String { rawValue } }

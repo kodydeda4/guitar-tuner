@@ -2,8 +2,8 @@ import SwiftUI
 import ComposableArchitecture
 import Models
 
-struct GuitarView_macOS: View {
-  let store: Store<GuitarState, GuitarAction>
+struct TunerView_macOS: View {
+  let store: Store<TunerState, TunerAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
@@ -24,7 +24,7 @@ struct GuitarView_macOS: View {
       .navigationTitle("GuitarTuner")
       .toolbar {
         Picker("Tuning", selection: viewStore.binding(\.$tuning)) {
-          ForEach(GuitarTuning.allCases) { tuning in
+          ForEach(InstrumentTuning.allCases) { tuning in
             Text(tuning.rawValue)
               .tag(tuning)
           }
@@ -36,6 +36,6 @@ struct GuitarView_macOS: View {
 
 struct GuitarView_macOS_Previews: PreviewProvider {
   static var previews: some View {
-    GuitarView_macOS(store: GuitarState.mockStore)
+    TunerView_macOS(store: TunerState.mockStore)
   }
 }
