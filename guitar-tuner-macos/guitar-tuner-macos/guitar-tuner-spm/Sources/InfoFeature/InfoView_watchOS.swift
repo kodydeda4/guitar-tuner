@@ -6,20 +6,22 @@ struct InfoView_watchOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      VStack {
-        Text("Author: \(viewStore.author)")
-        Text("This is the macOS view btw...")
-          .font(.caption)
+      List {
+        Section("About me") {
+          Text("Author: \(viewStore.author)")
+          Text("This is the watchOS view btw...")
+            .font(.caption)
+        }
+        Section("Links") {
+          Button("Github") {
+            
+          }
+          Button("LinkedIn") {
+            
+          }
+        }
       }
       .navigationTitle("Information")
-      .toolbar {
-        Button("Github") {
-          ///....
-        }
-        Button("LinkedIn") {
-          ///....
-        }
-      }
     }
   }
 }
