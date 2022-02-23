@@ -1,11 +1,11 @@
 import ComposableArchitecture
 
-public extension AboutState {
+public extension InfoState {
   static let defaultStore = Store(
-    initialState: AboutState(
+    initialState: InfoState(
       author: "Kody Deda"
     ),
-    reducer: aboutReducer,
+    reducer: infoReducer,
     environment: ()
   )
 }

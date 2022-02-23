@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftUINavigation
 import ComposableArchitecture
 import TunerFeature
-import AboutFeature
+import InfoFeature
 
 struct AppView_macOS: View {
   let store: Store<AppState, AppAction>
@@ -18,10 +18,10 @@ struct AppView_macOS: View {
             label: { Label("Tune", systemImage: "music.note.list") }
           )
           NavigationLink(
-            tag: AppState.Route.about,
+            tag: AppState.Route.info,
             selection: viewStore.binding(\.$route),
-            destination: { AboutView(store: store.scope(state: \.about, action: AppAction.about)) },
-            label: { Label("About", systemImage: "gear") }
+            destination: { InfoView(store: store.scope(state: \.info, action: AppAction.info)) },
+            label: { Label("Info", systemImage: "gear") }
           )
         }
       }

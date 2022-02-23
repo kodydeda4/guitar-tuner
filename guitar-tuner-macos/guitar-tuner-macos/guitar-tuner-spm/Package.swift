@@ -6,14 +6,13 @@ extension Target.Dependency {
   // Features
   static let appFeature: Self = "AppFeature"
   static let tunerFeature: Self = "TunerFeature"
-  static let aboutFeature: Self = "AboutFeature"
+  static let infoFeature: Self = "InfoFeature"
   
   // Clients
   static let tunerClient: Self = "TunerClient"
   
   // Core
   static let models: Self = "Models"
-  static let avSoundConductor: Self = "AVSoundConductor"
   static let composableArchitecture: Self = .product(
     name: "ComposableArchitecture",
     package: "swift-composable-architecture"
@@ -36,24 +35,15 @@ let package = Package(
 ).addSources([
   
   // Features
-  Source(name: "AppFeature", dependencies: [.tunerFeature, .aboutFeature, .swiftUINavigation]),
-  Source(name: "AboutFeature", dependencies: [.composableArchitecture]),
-  Source(name: "TunerFeature", dependencies: [
-    .composableArchitecture,
-    .tunerClient,
-    .models
-  ]),
+  Source(name: "AppFeature", dependencies: [.tunerFeature, .infoFeature, .swiftUINavigation]),
+  Source(name: "InfoFeature", dependencies: [.composableArchitecture]),
+  Source(name: "TunerFeature", dependencies: [.composableArchitecture, .tunerClient, .models]),
   
   // Clients
-  Source(name: "TunerClient", dependencies: [
-    .composableArchitecture,
-    .avSoundConductor,
-    .models,
-  ]),
+  Source(name: "TunerClient", dependencies: [.composableArchitecture, .models]),
   
   // Core
   Source(name: "Models"),
-  Source(name: "AVSoundConductor")
 ])
 
 

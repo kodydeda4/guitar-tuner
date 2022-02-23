@@ -1,6 +1,6 @@
 import ComposableArchitecture
 
-public struct AboutState: Equatable {
+public struct InfoState: Equatable {
   public let author: String
   
   public init(author: String = "Kody Deda") {
@@ -8,11 +8,11 @@ public struct AboutState: Equatable {
   }
 }
 
-public enum AboutAction: Equatable {
+public enum InfoAction: Equatable {
   
 }
 
-public let aboutReducer = Reducer<AboutState, AboutAction, Void> { state, action, _ in
+public let infoReducer = Reducer<InfoState, InfoAction, Void> { state, action, _ in
   switch action {
     
   }

@@ -1,8 +1,8 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct AboutView_macOS: View {
-  let store: Store<AboutState, AboutAction>
+struct InfoView_macOS: View {
+  let store: Store<InfoState, InfoAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
@@ -11,7 +11,7 @@ struct AboutView_macOS: View {
         Text("This is the macOS view btw...")
           .font(.caption)
       }
-      .navigationTitle("About")
+      .navigationTitle("Information")
       .toolbar {
         Button("Github") {
           ///....
@@ -24,9 +24,8 @@ struct AboutView_macOS: View {
   }
 }
 
-struct AboutView_macOS_Previews: PreviewProvider {
+struct InfoView_macOS_Previews: PreviewProvider {
   static var previews: some View {
-    AboutView_macOS(store: AboutState.defaultStore)
+    InfoView_macOS(store: InfoState.defaultStore)
   }
 }
-

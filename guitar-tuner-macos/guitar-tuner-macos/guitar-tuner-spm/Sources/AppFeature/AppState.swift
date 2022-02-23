@@ -2,23 +2,23 @@ import Models
 import ComposableArchitecture
 import TunerClient
 import TunerFeature
-import AboutFeature
+import InfoFeature
 
 public struct AppState: Equatable {
   public var tuner = TunerState()
-  public var about = AboutState()
-  @BindableState public var route: Route? = .about
+  public var info = InfoState()
+  @BindableState public var route: Route? = .info
   
   public enum Route {
     case tuner
-    case about
+    case info
   }
 }
 
 public enum AppAction: BindableAction, Equatable {
   case binding(BindingAction<AppState>)
   case tuner(TunerAction)
-  case about(AboutAction)
+  case info(InfoAction)
 }
 
 public struct AppEnvironment {
@@ -49,16 +49,16 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
       )
     }
   ),
-  aboutReducer.pullback(
-    state: \.about,
-    action: /AppAction.about,
+  infoReducer.pullback(
+    state: \.info,
+    action: /AppAction.info,
     environment: { _ in () }
   ),
 
   Reducer { state, action, environment in
     switch action {
       
-    case .binding, .tuner, .about:
+    case .binding, .tuner, .info:
       return .none
     }
   }.binding()
