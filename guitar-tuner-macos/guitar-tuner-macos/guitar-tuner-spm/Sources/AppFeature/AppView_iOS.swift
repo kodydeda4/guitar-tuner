@@ -12,13 +12,13 @@ struct AppView_iOS: View {
       TabView(selection: viewStore.binding(\.$route)) {
         TunerView(store: store.scope(state: \.tuner, action: AppAction.tuner))
           .navigationView()
-          .tag(AppState.Route.tuner)
+          .tag(Optional(AppState.Route.tuner))
           .tabItem { Label("Tune", systemImage: "music.note.list") }
         
         AboutView(store: store.scope(state: \.about, action: AppAction.about))
           .navigationTitle("About")
           .navigationView()
-          .tag(AppState.Route.about)
+          .tag(Optional(AppState.Route.about))
           .tabItem { Label("About", systemImage: "gear") }
       }
     }
@@ -26,7 +26,17 @@ struct AppView_iOS: View {
 }
 
 struct AppView_iOS_Previews: PreviewProvider {
-  static var previews: some View {
-    AppView_iOS(store: AppState.defaultStore)
+  static var previews: some View {    
+    AppView_iOS(store: .init(
+      initialState: .init(route: .tuner),
+      reducer: appReducer,
+      environment: .live
+    ))
+    
+    AppView_iOS(store: .init(
+      initialState: .init(route: .about),
+      reducer: appReducer,
+      environment: .live
+    ))
   }
 }

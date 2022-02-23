@@ -7,7 +7,7 @@ import AboutFeature
 public struct AppState: Equatable {
   public var tuner = TunerState()
   public var about = AboutState()
-  @BindableState public var route = Route.about
+  @BindableState public var route: Route? = .about
   
   public enum Route {
     case tuner
@@ -25,6 +25,10 @@ public struct AppEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
   public let tunerClient: TunerClient
   
+  public static let live = Self(
+    mainQueue: .main,
+    guitarClient: .live
+  )
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
     guitarClient: TunerClient
