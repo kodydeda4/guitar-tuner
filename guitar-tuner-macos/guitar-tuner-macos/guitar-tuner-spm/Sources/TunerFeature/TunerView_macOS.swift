@@ -51,7 +51,7 @@ struct TunerView_macOS: View {
 
 struct TunerView_macOS_Previews: PreviewProvider {
   static var previews: some View {
-    TunerView_macOS(store: TunerState.mockStore)
+    TunerView_macOS(store: .live)
   }
 }
 #endif

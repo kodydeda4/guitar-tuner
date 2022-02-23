@@ -44,7 +44,7 @@ struct AppView_watchOS: View {
 
 struct AppView_watchOS_Previews: PreviewProvider {
   static var previews: some View {
-    AppView_watchOS(store: AppState.defaultStore)
+    AppView_watchOS(store: .live)
   }
 }
 #endif

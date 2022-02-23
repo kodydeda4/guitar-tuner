@@ -45,7 +45,7 @@ struct AppView_macOS: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
   static var previews: some View {
-    AppView_macOS(store: AppState.defaultStore)
+    AppView_macOS(store: .live)
   }
 }
 #endif

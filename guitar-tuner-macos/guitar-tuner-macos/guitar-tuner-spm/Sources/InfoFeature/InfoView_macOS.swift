@@ -28,7 +28,7 @@ struct InfoView_macOS: View {
 
 struct InfoView_macOS_Previews: PreviewProvider {
   static var previews: some View {
-    InfoView_macOS(store: InfoState.defaultStore)
+    InfoView_macOS(store: .live)
   }
 }
 #endif

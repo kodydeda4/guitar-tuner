@@ -62,7 +62,7 @@ where SelectionValue : Hashable,
 struct TunerView_watchOS_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      TunerView_watchOS(store: TunerState.mockStore)
+      TunerView_watchOS(store: .live)
     }
   }
 }
