@@ -1,3 +1,4 @@
+#if os(macOS)
 import SwiftUI
 import ComposableArchitecture
 
@@ -6,19 +7,20 @@ struct InfoView_macOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      VStack {
-        Text("Author: \(viewStore.author)")
-        Text("This is the macOS view btw...")
-          .font(.caption)
+      List {
+        Section("Author") {
+          Text(viewStore.author)
+        }
+        Section("Purpose") {
+          Text(viewStore.appDescription)
+        }
       }
       .navigationTitle("Information")
       .toolbar {
-        Button("Github") {
-          ///....
-        }
-        Button("LinkedIn") {
-          ///....
-        }
+        Link(
+          "Read More",
+          destination: viewStore.projectURL
+        )
       }
     }
   }
@@ -29,3 +31,4 @@ struct InfoView_macOS_Previews: PreviewProvider {
     InfoView_macOS(store: InfoState.defaultStore)
   }
 }
+#endif

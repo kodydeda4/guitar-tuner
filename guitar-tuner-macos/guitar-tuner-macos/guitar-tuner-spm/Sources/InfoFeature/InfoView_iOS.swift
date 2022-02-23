@@ -6,18 +6,14 @@ struct InfoView_iOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      VStack {
-        Text("Author: \(viewStore.author)")
-        Text("This is the iOS version btw...")
-          .font(.caption)
-        
-        Button("Github") {
-          ///....
+      List {
+        Section {
+          Text(viewStore.author)
+        } header: {
+          Text("Author")
+        } footer: {
+          Text(viewStore.appDescription)
         }
-        Button("LinkedIn") {
-          ///....
-        }
-
       }
       .navigationTitle("Information")
     }

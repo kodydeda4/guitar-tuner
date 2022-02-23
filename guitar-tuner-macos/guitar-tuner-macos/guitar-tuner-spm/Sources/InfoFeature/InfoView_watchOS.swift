@@ -7,18 +7,12 @@ struct InfoView_watchOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       List {
-        Section("About me") {
-          Text("Author: \(viewStore.author)")
-          Text("This is the watchOS view btw...")
-            .font(.caption)
-        }
-        Section("Links") {
-          Button("Github") {
-            
-          }
-          Button("LinkedIn") {
-            
-          }
+        Section {
+          Text(viewStore.author)
+        } header: {
+          Text("Author")
+        } footer: {
+          Text(viewStore.appDescription)
         }
       }
       .navigationTitle("Information")
