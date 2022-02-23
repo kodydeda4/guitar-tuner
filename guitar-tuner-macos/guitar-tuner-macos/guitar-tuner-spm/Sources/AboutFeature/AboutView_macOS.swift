@@ -7,7 +7,9 @@ struct AboutView_macOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       VStack {
-        Text("About \(viewStore.author) macOS")
+        Text("Author: \(viewStore.author)")
+        Text("This is the macOS view btw...")
+          .font(.caption)
       }
       .navigationTitle("About")
       .toolbar {

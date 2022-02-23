@@ -7,17 +7,19 @@ struct AboutView_iOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       VStack {
-        Text("About \(viewStore.author) iOS")
-      }
-      .navigationTitle("About")
-      .toolbar {
+        Text("Author: \(viewStore.author)")
+        Text("This is the iOS version btw...")
+          .font(.caption)
+        
         Button("Github") {
           ///....
         }
         Button("LinkedIn") {
           ///....
         }
+
       }
+      .navigationTitle("About")
     }
   }
 }
