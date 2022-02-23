@@ -29,4 +29,3 @@ struct InfoView_iOS_Previews: PreviewProvider {
     InfoView_iOS(store: InfoState.defaultStore)
   }
 }
-

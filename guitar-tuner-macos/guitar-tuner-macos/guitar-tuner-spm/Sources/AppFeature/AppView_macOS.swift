@@ -10,19 +10,30 @@ struct AppView_macOS: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       NavigationView {
-        List {
+        List(selection: viewStore.binding(\.$route)) {
           NavigationLink(
-            tag: AppState.Route.tuner,
-            selection: viewStore.binding(\.$route),
-            destination: { TunerView(store: store.scope(state: \.tuner, action: AppAction.tuner)) },
-            label: { Label("Tune", systemImage: "music.note.list") }
-          )
+            destination: {
+              TunerView(store: store.scope(
+                state: \.tuner,
+                action: AppAction.tuner
+              ))
+            },
+            label: {
+              Label("Tune", systemImage: "music.note.list")
+            }
+          ).tag(AppState.Route.tuner)
+          
           NavigationLink(
-            tag: AppState.Route.info,
-            selection: viewStore.binding(\.$route),
-            destination: { InfoView(store: store.scope(state: \.info, action: AppAction.info)) },
-            label: { Label("Info", systemImage: "gear") }
-          )
+            destination: {
+              InfoView(store: store.scope(
+                state: \.info,
+                action: AppAction.info
+              ))
+            },
+            label: {
+              Label("Info", systemImage: "gear")
+            }
+          ).tag(AppState.Route.info)
         }
       }
       .listStyle(.sidebar)
