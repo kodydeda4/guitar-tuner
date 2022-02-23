@@ -31,6 +31,8 @@ struct AppView_iOS: View {
           .tabItem { Label("Info", systemImage: "gear") }
           .tag(Optional(AppState.Route.info))
       }
+      .navigationViewStyle(.stack)
+
     }
   }
 }
