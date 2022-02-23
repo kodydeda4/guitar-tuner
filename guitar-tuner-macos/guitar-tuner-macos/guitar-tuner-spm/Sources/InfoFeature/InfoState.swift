@@ -9,12 +9,14 @@ public struct InfoState: Equatable {
 }
 
 public enum InfoAction: Equatable {
+  case onAppear
   
 }
 
 public let infoReducer = Reducer<InfoState, InfoAction, Void> { state, action, _ in
   switch action {
-    
+  case .onAppear:
+    return .none
   }
 }
 

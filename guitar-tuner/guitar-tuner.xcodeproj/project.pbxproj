@@ -18,7 +18,6 @@
 		333E635527C403FE008B6D55 /* Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 333E635427C403FE008B6D55 /* Guitar.sf2 */; };
 		333E635727C405CE008B6D55 /* Guitar.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 333E635627C405CE008B6D55 /* Guitar.sf2 */; };
 		3354E81027C6632E006D6398 /* guitar-tuner-watchos WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3354E80F27C6632E006D6398 /* guitar-tuner-watchos WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3354E81527C6632F006D6398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3354E81427C6632F006D6398 /* Assets.xcassets */; };
 		3354E81B27C6632F006D6398 /* guitar-tuner-watchos WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3354E81A27C6632F006D6398 /* guitar-tuner-watchos WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3354E82027C6632F006D6398 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3354E81F27C6632F006D6398 /* Main.swift */; };
 		3354E82A27C6632F006D6398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3354E82927C6632F006D6398 /* Assets.xcassets */; };
@@ -82,13 +81,11 @@
 		333E635627C405CE008B6D55 /* Guitar.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Guitar.sf2; sourceTree = "<group>"; };
 		3354E80C27C6632E006D6398 /* guitar-tuner-watchos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "guitar-tuner-watchos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3354E80F27C6632E006D6398 /* guitar-tuner-watchos WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "guitar-tuner-watchos WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3354E81427C6632F006D6398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3354E81A27C6632F006D6398 /* guitar-tuner-watchos WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "guitar-tuner-watchos WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3354E81F27C6632F006D6398 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		3354E82927C6632F006D6398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3354E82C27C6632F006D6398 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3354E82E27C6632F006D6398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3354E82F27C6632F006D6398 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,24 +155,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3354E81327C6632E006D6398 /* guitar-tuner-watchos WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				3354E81427C6632F006D6398 /* Assets.xcassets */,
-			);
-			path = "guitar-tuner-watchos WatchKit App";
-			sourceTree = "<group>";
-		};
-		3354E81E27C6632F006D6398 /* guitar-tuner-watchos WatchKit Extension */ = {
+		3354E81E27C6632F006D6398 /* guitar-tuner-watchos */ = {
 			isa = PBXGroup;
 			children = (
 				3354E81F27C6632F006D6398 /* Main.swift */,
 				3354E82927C6632F006D6398 /* Assets.xcassets */,
 				3354E82E27C6632F006D6398 /* Info.plist */,
-				3354E82F27C6632F006D6398 /* PushNotificationPayload.apns */,
 				3354E82B27C6632F006D6398 /* Preview Content */,
 			);
-			path = "guitar-tuner-watchos WatchKit Extension";
+			path = "guitar-tuner-watchos";
 			sourceTree = "<group>";
 		};
 		3354E82B27C6632F006D6398 /* Preview Content */ = {
@@ -191,8 +179,7 @@
 			children = (
 				333E632727C3FD9C008B6D55 /* guitar-tuner-ios */,
 				333E633B27C3FE17008B6D55 /* guitar-tuner-macos */,
-				3354E81327C6632E006D6398 /* guitar-tuner-watchos WatchKit App */,
-				3354E81E27C6632F006D6398 /* guitar-tuner-watchos WatchKit Extension */,
+				3354E81E27C6632F006D6398 /* guitar-tuner-watchos */,
 				33E89D9F27C3FCDC007C4639 /* Products */,
 				33E89DB027C3FD18007C4639 /* Frameworks */,
 			);
@@ -395,7 +382,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3354E81527C6632F006D6398 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,11 +640,11 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"guitar-tuner-watchos WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"guitar-tuner-watchos/Preview Content\"";
 				DEVELOPMENT_TEAM = ME637H7ZM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "guitar-tuner-watchos WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "guitar-tuner-watchos/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "guitar-tuner-watchos WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -686,11 +672,11 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"guitar-tuner-watchos WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"guitar-tuner-watchos/Preview Content\"";
 				DEVELOPMENT_TEAM = ME637H7ZM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "guitar-tuner-watchos WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "guitar-tuner-watchos/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "guitar-tuner-watchos WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
