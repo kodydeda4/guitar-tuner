@@ -1,4 +1,4 @@
-# SwiftUI-GuitarTuners
+# GuitarTuner
 
 ## 📖 About
 
