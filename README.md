@@ -20,8 +20,8 @@ Here are some of the benefits of using SPM:
 2. Feature logic becomes isolated & maintained.
 3. Platform Independent
 4. Previews run faster because xcode doesn't have to run the entire application.
-5. Dependencies can be easily identified and managed
-6. Importing/removing libraries is made much easier
+5. Dependencies can be easily identified and managed.
+6. Importing/removing libraries is easy.
 
 ### ComposableArchitecture
 
