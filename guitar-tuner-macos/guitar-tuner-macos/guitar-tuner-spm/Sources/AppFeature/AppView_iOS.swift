@@ -37,25 +37,7 @@ struct AppView_iOS: View {
 
 struct AppView_iOS_Previews: PreviewProvider {
   static var previews: some View {
-    AppView_iOS(store: .init(
-      initialState: AppState(
-        tuner: TunerState(),
-        info: InfoState(),
-        route: AppState.Route.tuner
-      ),
-      reducer: appReducer,
-      environment: .live
-    ))
-    
-    AppView_iOS(store: .init(
-      initialState: AppState(
-        tuner: TunerState(),
-        info: InfoState(),
-        route: AppState.Route.info
-      ),
-      reducer: appReducer,
-      environment: .live
-    ))
+    AppView_iOS(store: AppState.defaultStore)
   }
 }
 #endif

@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import Models
+import InfoFeature
 import TunerFeature
 
 public struct AppView: View {
@@ -24,5 +25,15 @@ public struct AppView: View {
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
     AppView(store: AppState.defaultStore)
+
+    AppView(store: .init(
+      initialState: AppState(
+        tuner: TunerState(),
+        info: InfoState(),
+        route: AppState.Route.info
+      ),
+      reducer: appReducer,
+      environment: .live
+    ))
   }
 }
