@@ -23,7 +23,7 @@ struct AppView_watchOS: View {
               Label("Tune", systemImage: "music.note.list")
             }
           ).tag(AppState.Route.tuner)
-          
+            
           NavigationLink(
             destination: {
               InfoView(store: store.scope(

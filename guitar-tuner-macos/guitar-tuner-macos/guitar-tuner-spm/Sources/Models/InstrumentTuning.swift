@@ -6,9 +6,10 @@ public enum InstrumentTuning: String {
   case dadgad = "DADGAD"
 }
 
-extension InstrumentTuning: Identifiable { public var id: String { rawValue } }
 extension InstrumentTuning: Equatable {}
 extension InstrumentTuning: CaseIterable {}
+extension InstrumentTuning: Identifiable { public var id: String { rawValue } }
+extension InstrumentTuning: CustomStringConvertible { public var description: String { rawValue } }
 
 public extension InstrumentTuning {
   var notes: [Note] {

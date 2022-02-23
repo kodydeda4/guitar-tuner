@@ -5,7 +5,7 @@ public enum Instrument: String {
   case bass = "Bass"
 }
 
-extension Instrument: Identifiable { public var id: String { rawValue } }
 extension Instrument: Equatable {}
 extension Instrument: CaseIterable {}
-extension Instrument { var imageAssetName: String { rawValue } }
+extension Instrument: Identifiable { public var id: String { rawValue } }
+extension Instrument: CustomStringConvertible { public var description: String { rawValue} }
