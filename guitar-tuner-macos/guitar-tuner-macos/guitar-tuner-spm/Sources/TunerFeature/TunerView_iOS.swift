@@ -39,6 +39,7 @@ struct TunerView_iOS: View {
               Button(action: { viewStore.send(.play(note)) }) {
                 GroupBox {
                   Text(note.description.prefix(1))
+                    .frame(maxWidth: .infinity)
                 }
               }
             }

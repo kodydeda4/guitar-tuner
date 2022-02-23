@@ -10,16 +10,26 @@ struct AppView_iOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      TabView(selection: viewStore.binding(\.$route)) {
-        TunerView(store: store.scope(state: \.tuner, action: AppAction.tuner))
+      TabView(
+        selection: viewStore.binding(\.$route)
+      ) {
+        TunerView
+          .init(store: store.scope(
+            state: \.tuner,
+            action: AppAction.tuner
+          ))
           .navigationView()
-          .tag(Optional(AppState.Route.tuner))
           .tabItem { Label("Tune", systemImage: "music.note.list") }
+          .tag(Optional(AppState.Route.tuner))
         
-        InfoView(store: store.scope(state: \.info, action: AppAction.info))
+        InfoView
+          .init(store: store.scope(
+            state: \.info,
+            action: AppAction.info
+          ))
           .navigationView()
-          .tag(Optional(AppState.Route.info))
           .tabItem { Label("Info", systemImage: "gear") }
+          .tag(Optional(AppState.Route.info))
       }
     }
   }
@@ -28,13 +38,21 @@ struct AppView_iOS: View {
 struct AppView_iOS_Previews: PreviewProvider {
   static var previews: some View {
     AppView_iOS(store: .init(
-      initialState: .init(route: .tuner),
+      initialState: AppState(
+        tuner: TunerState(),
+        info: InfoState(),
+        route: AppState.Route.tuner
+      ),
       reducer: appReducer,
       environment: .live
     ))
     
     AppView_iOS(store: .init(
-      initialState: .init(route: .info),
+      initialState: AppState(
+        tuner: TunerState(),
+        info: InfoState(),
+        route: AppState.Route.info
+      ),
       reducer: appReducer,
       environment: .live
     ))

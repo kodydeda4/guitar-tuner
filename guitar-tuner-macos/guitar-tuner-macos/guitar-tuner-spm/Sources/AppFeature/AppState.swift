@@ -5,13 +5,23 @@ import TunerFeature
 import InfoFeature
 
 public struct AppState: Equatable {
-  public var tuner = TunerState()
-  public var info = InfoState()
-  @BindableState public var route: Route? = .info
+  public var tuner: TunerState
+  public var info: InfoState
+  @BindableState public var route: Route?
   
   public enum Route {
     case tuner
     case info
+  }
+  
+  public init(
+    tuner: TunerState,
+    info: InfoState,
+    route: Route?
+  ) {
+    self.tuner = tuner
+    self.info = info
+    self.route = route
   }
 }
 
@@ -38,7 +48,11 @@ public struct AppEnvironment {
   }
 }
 
-public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+public let appReducer = Reducer<
+  AppState,
+  AppAction,
+  AppEnvironment
+>.combine(
   tunerReducer.pullback(
     state: \.tuner,
     action: /AppAction.tuner,
@@ -53,15 +67,10 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     state: \.info,
     action: /AppAction.info,
     environment: { _ in () }
-  ),
+  )
+).binding().debug()
 
-  Reducer { state, action, environment in
-    switch action {
-      
-    case .binding, .tuner, .info:
-      return .none
-    }
-  }.binding()
-)
+
+
 
 
