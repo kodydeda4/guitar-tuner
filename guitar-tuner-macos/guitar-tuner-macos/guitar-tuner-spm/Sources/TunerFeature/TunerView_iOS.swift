@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 import ComposableArchitecture
 import Models
@@ -59,4 +60,4 @@ struct GuitarViewiOS_Previews: PreviewProvider {
     }
   }
 }
- 
+#endif

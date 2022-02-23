@@ -1,17 +1,17 @@
-#if os(macOS)
+#if os(watchOS)
 import SwiftUI
 import SwiftUINavigation
 import ComposableArchitecture
 import TunerFeature
 import InfoFeature
 
-struct AppView_macOS: View {
+struct AppView_watchOS: View {
   let store: Store<AppState, AppAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
       NavigationView {
-        List(selection: viewStore.binding(\.$route)) {
+        List {
           NavigationLink(
             destination: {
               TunerView(store: store.scope(
@@ -36,16 +36,15 @@ struct AppView_macOS: View {
             }
           ).tag(AppState.Route.info)
         }
+        .navigationTitle("GuitarTuner")
       }
-      .listStyle(.sidebar)
-      .frame(width: 550, height: 400)
     }
   }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct AppView_watchOS_Previews: PreviewProvider {
   static var previews: some View {
-    AppView_macOS(store: AppState.defaultStore)
+    AppView_watchOS(store: AppState.defaultStore)
   }
 }
 #endif

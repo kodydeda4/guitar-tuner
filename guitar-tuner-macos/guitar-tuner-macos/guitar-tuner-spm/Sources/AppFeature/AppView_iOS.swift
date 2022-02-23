@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 import SwiftUINavigation
 import ComposableArchitecture
@@ -39,3 +40,4 @@ struct AppView_iOS_Previews: PreviewProvider {
     ))
   }
 }
+#endif

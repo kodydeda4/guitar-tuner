@@ -14,6 +14,8 @@ public struct TunerView: View {
     TunerView_macOS(store: store)
 #elseif os(iOS)
     TunerView_iOS(store: store)
+#elseif os(watchOS)
+    TunerView_watchOS(store: store)
 #endif
   }
 }

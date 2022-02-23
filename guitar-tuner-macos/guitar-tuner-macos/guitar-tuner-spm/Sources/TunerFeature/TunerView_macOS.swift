@@ -1,3 +1,4 @@
+#if os(macOS)
 import SwiftUI
 import ComposableArchitecture
 import Models
@@ -48,8 +49,9 @@ struct TunerView_macOS: View {
   }
 }
 
-struct GuitarView_macOS_Previews: PreviewProvider {
+struct TunerView_macOS_Previews: PreviewProvider {
   static var previews: some View {
     TunerView_macOS(store: TunerState.mockStore)
   }
 }
+#endif

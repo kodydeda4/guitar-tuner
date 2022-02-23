@@ -25,7 +25,7 @@ extension Target.Dependency {
 
 let package = Package(
   name: "guitar-tuner-spm",
-  platforms: [.macOS(.v12), .iOS(.v15)],
+  platforms: [.macOS(.v12), .iOS(.v15), .watchOS(.v8)],
   products: [],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.31.0"),

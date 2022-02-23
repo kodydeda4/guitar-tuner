@@ -15,6 +15,8 @@ public struct AppView: View {
     AppView_macOS(store: store)
 #elseif os(iOS)
     AppView_iOS(store: store)
+#elseif os(watchOS)
+    AppView_watchOS(store: store)
 #endif
   }
 }

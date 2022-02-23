@@ -13,6 +13,8 @@ public struct InfoView: View {
     InfoView_macOS(store: store)
 #elseif os(iOS)
     InfoView_iOS(store: store)
+#elseif os(watchOS)
+    InfoView_watchOS(store: store)
 #endif
   }
 }
