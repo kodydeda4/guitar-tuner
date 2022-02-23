@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUINavigation
 import ComposableArchitecture
 import TunerFeature
 import AboutFeature
@@ -8,16 +9,16 @@ struct AppView_iOS: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      TabView {
+      TabView(selection: viewStore.binding(\.$route)) {
         TunerView(store: store.scope(state: \.tuner, action: AppAction.tuner))
           .navigationView()
-          .tag(0)
+          .tag(AppState.Route.tuner)
           .tabItem { Label("Tune", systemImage: "music.note.list") }
         
         AboutView(store: store.scope(state: \.about, action: AppAction.about))
           .navigationTitle("About")
           .navigationView()
-          .tag(1)
+          .tag(AppState.Route.about)
           .tabItem { Label("About", systemImage: "gear") }
       }
     }

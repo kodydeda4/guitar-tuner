@@ -18,6 +18,10 @@ extension Target.Dependency {
     name: "ComposableArchitecture",
     package: "swift-composable-architecture"
   )
+  static let swiftUINavigation: Self = .product(
+    name: "SwiftUINavigation",
+    package: "swiftui-navigation"
+  )
 }
 
 let package = Package(
@@ -25,13 +29,14 @@ let package = Package(
   platforms: [.macOS(.v12), .iOS(.v15)],
   products: [],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.31.0")
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.31.0"),
+    .package(url: "https://github.com/pointfreeco/swiftui-navigation", from: "0.1.0"),
   ],
   targets: []
 ).addSources([
   
   // Features
-  Source(name: "AppFeature", dependencies: [.tunerFeature, .aboutFeature]),
+  Source(name: "AppFeature", dependencies: [.tunerFeature, .aboutFeature, .swiftUINavigation]),
   Source(name: "AboutFeature", dependencies: [.composableArchitecture]),
   Source(name: "TunerFeature", dependencies: [
     .composableArchitecture,
