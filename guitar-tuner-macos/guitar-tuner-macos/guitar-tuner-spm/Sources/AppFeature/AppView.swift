@@ -7,7 +7,7 @@ import TunerFeature
 public struct AppView: View {
   public let store: Store<AppState, AppAction>
   
-  public init(store: Store<AppState, AppAction> = AppState.defaultStore) {
+  public init(store: Store<AppState, AppAction> = .live) {
     self.store = store
   }
   
@@ -24,16 +24,19 @@ public struct AppView: View {
 
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
-    AppView(store: AppState.defaultStore)
-
+    AppView(store: .live)
+    
     AppView(store: .init(
-      initialState: AppState(
-        tuner: TunerState(),
-        info: InfoState(),
-        route: AppState.Route.info
+      initialState: .init(
+        tuner: .init(),
+        info: .init(),
+        route: .info
       ),
       reducer: appReducer,
-      environment: .live
+      environment: .init(
+        mainQueue: .main,
+        guitarClient: .live
+      )
     ))
   }
 }

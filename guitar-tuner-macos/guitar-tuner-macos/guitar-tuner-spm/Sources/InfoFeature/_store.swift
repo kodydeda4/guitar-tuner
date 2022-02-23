@@ -1,11 +1,9 @@
 import ComposableArchitecture
 
-public extension InfoState {
-  static let defaultStore = Store(
+extension Store where State == InfoState, Action == InfoAction {
+  static let live = Store(
     initialState: InfoState(),
     reducer: infoReducer,
     environment: ()
   )
 }
-
-

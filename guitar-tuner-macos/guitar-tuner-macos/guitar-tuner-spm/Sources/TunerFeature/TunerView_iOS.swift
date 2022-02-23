@@ -57,7 +57,7 @@ struct TunerView_iOS: View {
 struct GuitarViewiOS_Previews: PreviewProvider {
   static var previews: some View {
     NavigationView {
-      TunerView_iOS(store: TunerState.mockStore)
+      TunerView_iOS(store: .live)
     }
   }
 }

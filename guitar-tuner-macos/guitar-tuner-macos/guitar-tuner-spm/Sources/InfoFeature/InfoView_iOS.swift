@@ -22,6 +22,6 @@ struct InfoView_iOS: View {
 
 struct InfoView_iOS_Previews: PreviewProvider {
   static var previews: some View {
-    InfoView_iOS(store: InfoState.defaultStore)
+    InfoView_iOS(store: .live)
   }
 }

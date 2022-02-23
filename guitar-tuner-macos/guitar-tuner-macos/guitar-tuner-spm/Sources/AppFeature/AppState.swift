@@ -35,10 +35,6 @@ public struct AppEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
   public let tunerClient: TunerClient
   
-  public static let live = Self(
-    mainQueue: .main,
-    guitarClient: .live
-  )
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
     guitarClient: TunerClient

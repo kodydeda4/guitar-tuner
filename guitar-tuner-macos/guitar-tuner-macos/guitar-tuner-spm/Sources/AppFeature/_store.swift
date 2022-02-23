@@ -3,15 +3,17 @@ import TunerFeature
 import InfoFeature
 import Models
 
-public extension AppState {
-  static let defaultStore = Store(
+public extension Store where State == AppState, Action == AppAction {
+  static let live = Store(
     initialState: AppState(
       tuner: TunerState(),
       info: InfoState(),
-      route: Route.tuner
+      route: AppState.Route.tuner
     ),
     reducer: appReducer,
-    environment: .live
+    environment: AppEnvironment(
+      mainQueue: .main,
+      guitarClient: .live
+    )
   )
 }
-

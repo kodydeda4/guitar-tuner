@@ -37,7 +37,7 @@ struct AppView_iOS: View {
 
 struct AppView_iOS_Previews: PreviewProvider {
   static var previews: some View {
-    AppView_iOS(store: AppState.defaultStore)
+    AppView_iOS(store: .live)
   }
 }
 #endif

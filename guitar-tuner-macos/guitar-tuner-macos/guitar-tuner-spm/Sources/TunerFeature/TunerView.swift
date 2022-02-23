@@ -22,6 +22,6 @@ public struct TunerView: View {
 
 struct GuitarView_Previews: PreviewProvider {
   static var previews: some View {
-    TunerView(store: TunerState.mockStore)
+    TunerView(store: .live)
   }
 }

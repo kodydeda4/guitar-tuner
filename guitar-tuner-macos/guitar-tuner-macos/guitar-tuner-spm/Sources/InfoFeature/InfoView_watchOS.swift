@@ -22,6 +22,6 @@ struct InfoView_watchOS: View {
 
 struct InfoView_watchOS_Previews: PreviewProvider {
   static var previews: some View {
-    InfoView_watchOS(store: InfoState.defaultStore)
+    InfoView_watchOS(store: .live)
   }
 }
